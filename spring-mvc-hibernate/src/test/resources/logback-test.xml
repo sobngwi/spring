@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- configuration file for LogBack (slf4J implementation)
+See here for more details: 
+http://gordondickens.com/wordpress/2013/03/27/sawing-through-the-java-loggers/ 
+-->
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <!-- To enable JMX Management -->
+    <jmxConfigurator/>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+	    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+	        <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} %-5level %logger{136} - %msg%n
+	                </Pattern>
+	    </encoder>
+	 </appender>
+
+    <appender name="FILE"
+	    class="ch.qos.logback.core.rolling.RollingFileAppender">
+	    <file>/home/suse/sobngwi/NSY135/logs/nsy135_test.log</file>
+	    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+	       <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} [%thread] %-5level %logger{136} - %msg%n
+	           </Pattern>
+	    </encoder>
+	
+	    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+	        <FileNamePattern>/home/suse/sobngwi/NSY135/logs/nsy135_test.log.%i.zip</FileNamePattern>
+	        <MinIndex>1</MinIndex>
+	        <MaxIndex>30</MaxIndex>
+	    </rollingPolicy>
+	 
+	    <triggeringPolicy
+	        class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+	        <MaxFileSize>200MB</MaxFileSize>
+	    </triggeringPolicy>
+	 
+	  </appender>
+	 
+	  <logger name="org.hibernate.type" level="WARN" />
+	  <logger name="org.hibernate" 		level="WARN" />
+	  <logger name="com.sobngwi" 		level="INFO" />
+	  <!--logger name="jdbc.sqlonly"          level= "INFO" additivity="false"/-->
+	  <!--logger name="jdbc.connection"       level= "INFO" additivity="false"/-->
+	  <logger name="jdbc.sqltiming"     level="INFO" additivity="false"/>
+	  <logger name="jdbc.audit"         level="INFO" additivity="false"/>
+	  <logger name="jdbc.resultset"     level="INFO" additivity="false"/>
+	  <logger name="jdbc.resultsettable"     level="INFO" additivity="false"/>
+         
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>

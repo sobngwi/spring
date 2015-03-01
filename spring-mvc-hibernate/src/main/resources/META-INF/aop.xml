@@ -1,0 +1,17 @@
+<!DOCTYPE aspectj PUBLIC
+        "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<aspectj>
+	<!--  Pour voir toutes les classes non Weaver activer l option du dessous -->
+    <!-- weaver options="-verbose -showWeaveInfo -debug">  -->
+    <weaver>
+        <!-- only weave classes in this package -->
+        <!--  include within="com.fasterxml.jackson.*.*" />  -->
+        
+        <include within="com.sobngwi.hibernate.nsy135..*"/>
+        <include within="audit.ExecutionMonitoring" />
+    </weaver>
+    <aspects>
+        <!-- use only this aspect for weaving -->
+        <aspect name="audit.ExecutionMonitoring" />
+    </aspects>
+</aspectj>

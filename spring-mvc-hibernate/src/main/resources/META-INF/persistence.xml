@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<persistence-unit name="persistence" transaction-type="RESOURCE_LOCAL">
+	     
+		    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		    
+		    <class>com.sobngwi.hibernate.nsy135.modele.persistence.Film </class>
+            <class>com.sobngwi.hibernate.nsy135.modele.persistence.Pays</class>
+            <class>com.sobngwi.hibernate.nsy135.modele.persistence.Internaute</class>
+            <class>com.sobngwi.hibernate.nsy135.modele.persistence.Artiste</class>
+            <class>com.sobngwi.hibernate.nsy135.modele.persistence.Genre</class>
+            <class>com.sobngwi.hibernate.nsy135.modele.persistence.Role</class>
+
+			<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="validate" />
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.connection.isolationl" value="4"/>
+			<!-- Hibernate statistics properties -->
+            <property name="hibernate.generate_statistics" value="true" />
+
+			</properties>
+
+	</persistence-unit>
+</persistence>

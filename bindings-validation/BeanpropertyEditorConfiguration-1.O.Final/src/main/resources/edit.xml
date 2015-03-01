@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="org.sobngwi.animal.Special" value="org.sobngwi.editors.CatEditor" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id ="nathalie" class="org.sobngwi.animal.Cat">
+	<property name="name" value="Toutou"/>
+	<property name="abilities" value="tout casser, c est son boulot"/>
+	</bean>
+
+</beans>

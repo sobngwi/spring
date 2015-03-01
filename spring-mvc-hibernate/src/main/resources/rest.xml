@@ -1,0 +1,94 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+    http://www.springframework.org/schema/jee 
+    http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<context:annotation-config />
+	<context:load-time-weaver  />
+	
+	<context:component-scan base-package="com.sobngwi.hibernate.nsy135.controleur" />
+	<context:component-scan base-package="com.sobngwi.hibernate.nsy135.modele" />
+	<context:component-scan base-package="com.sobngwi.hibernate.nsy135.service" />
+	
+	
+	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+	<property name="converters">
+        <set>
+            <bean class="com.sobngwi.hibernate.nsy135.converters.PaysToOrigine"/>
+        </set>
+    </property>
+    </bean>
+    <!-- 
+	<util:properties id="mysqlClusterJProperties" location="classpath:clusterj.properties" />
+	 
+	<aop:aspectj-autoproxy/>
+    -->
+ 
+	<bean name="servletProperty" class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true"/>
+		<property name="order" value="2"/>
+		<property name="environment" ref="servletEnv" />
+	</bean>
+	
+	<bean name="servletEnv" class="org.springframework.web.context.support.StandardServletEnvironment" />
+	
+	
+	
+	<tx:annotation-driven />
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" >
+		<property name="jndiName" value="jdbc/oracle"></property>
+		<property name="resourceRef" value="true" />
+	</bean>
+	
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+		<property name="persistenceUnitName" value="persistence" />
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaDialect">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+		</property>
+	</bean>
+
+	<aop:config>
+
+  <aop:aspect id="concurrentOperationRetry" ref="concurrentOperationExecutor">
+
+    <aop:pointcut id="idempotentOperation"
+        expression="execution(* com.sobngwi.hibernate.nsy135.service.*.*(..))"/>
+       
+    <aop:around
+       pointcut-ref="idempotentOperation"
+       method="doConcurrentOperation"/>
+  
+  </aop:aspect>
+
+</aop:config>
+
+	<bean 	id="concurrentOperationExecutor"
+  			class="audit.RetryService">
+     		<property name="maxRetries" value="9" />
+     		
+	</bean>
+
+</beans>
