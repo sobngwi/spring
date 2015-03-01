@@ -1,0 +1,18 @@
+<!DOCTYPE aspectj PUBLIC
+"-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<aspectj>
+<!-- Pour voir toutes les classes non Weaver activer l option du dessous -->
+<!--weaver options="-verbose -showWeaveInfo -debug"--> 
+<weaver>
+<!-- only weave classes in this package 
+<include within="org.springframework.orm.jpa..*" /> -->
+<include within="com.apress.prospring4..*"/> 
+<include within="com.sobngwi..*"/>
+<!--  include within="org.hibernate.internal.SessionImpl"/>   -->
+<include within="audit.ExecutionMonitoring" />
+</weaver>
+<aspects>
+<!-- use only this aspect for weaving -->
+<aspect name="audit.ExecutionMonitoring" />
+</aspects>
+</aspectj>

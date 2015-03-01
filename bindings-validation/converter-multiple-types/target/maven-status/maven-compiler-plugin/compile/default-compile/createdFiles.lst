@@ -1,0 +1,5 @@
+org/sobngwi/converter/multiple/ContactToAnotherContactConverter.class
+org/sobngwi/converter/multiple/Contact.class
+org/sobngwi/converter/multiple/ConvServExample.class
+org/sobngwi/converter/multiple/AnotherContact.class
+org/sobngwi/converter/multiple/StringToDateTimeConverter.class

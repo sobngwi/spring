@@ -1,0 +1,7 @@
+org/sobngwi/validation/jsr349/custom/CustomerType.class
+org/sobngwi/validation/jsr349/custom/MyBeanValidationService.class
+org/sobngwi/validation/jsr349/custom/CheckIndividualCustomer.class
+org/sobngwi/validation/jsr349/custom/Customer.class
+org/sobngwi/validation/jsr349/custom/IndividualCustomerValidator.class
+org/sobngwi/validation/jsr349/custom/Jsr349Sample.class
+org/sobngwi/validation/jsr349/custom/Gender.class

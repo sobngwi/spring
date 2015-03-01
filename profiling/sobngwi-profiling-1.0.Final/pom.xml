@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+   
+    <groupId>org.sobngwi.app</groupId>
+    <artifactId>sobngwi-profiling</artifactId>
+    <version>1.1.2</version>
+    <name>Contact PROFILING</name>
+    <description>
+         An Implementation of monitoring of Profifing
+        
+    </description>
+    <properties>
+    <spring.framework.version>4.1.4.RELEASE</spring.framework.version>
+    <slf4j.version>1.7.10</slf4j.version>
+       <logback-classic.version>1.1.2</logback-classic.version>
+<slf4j.version>1.7.10</slf4j.version>
+<slf4j-log4j12.version>1.7.7</slf4j-log4j12.version>
+    </properties>
+    
+    <dependencies>
+
+			<!-- LOG -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback-classic.version}</version>
+		</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j-log4j12.version}</version>
+		</dependency>
+		 <dependency>
+	      <groupId>org.bgee.log4jdbc-log4j2</groupId>
+	      <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+	  	  <version>1.16</version>
+      </dependency>
+      
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+        <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.framework.version}</version>
+        </dependency>
+        <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+    
+    </dependencies>
+
+</project>

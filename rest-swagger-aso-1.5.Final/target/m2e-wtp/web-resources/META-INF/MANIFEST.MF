@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: rest-swagger-aso
+Implementation-Version: 1.5-SNAPSHOT
+Built-By: suse
+Implementation-Vendor-Id: org.sobngwi
+Build-Jdk: 1.8.0_31
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

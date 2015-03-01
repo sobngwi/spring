@@ -1,0 +1,7 @@
+/home/suse/sobngwi/SPRING/book/Chapter10/jsr349-custom/src/main/java/org/sobngwi/validation/jsr349/custom/Jsr349Sample.java
+/home/suse/sobngwi/SPRING/book/Chapter10/jsr349-custom/src/main/java/org/sobngwi/validation/jsr349/custom/MyBeanValidationService.java
+/home/suse/sobngwi/SPRING/book/Chapter10/jsr349-custom/src/main/java/org/sobngwi/validation/jsr349/custom/CustomerType.java
+/home/suse/sobngwi/SPRING/book/Chapter10/jsr349-custom/src/main/java/org/sobngwi/validation/jsr349/custom/CheckIndividualCustomer.java
+/home/suse/sobngwi/SPRING/book/Chapter10/jsr349-custom/src/main/java/org/sobngwi/validation/jsr349/custom/IndividualCustomerValidator.java
+/home/suse/sobngwi/SPRING/book/Chapter10/jsr349-custom/src/main/java/org/sobngwi/validation/jsr349/custom/Gender.java
+/home/suse/sobngwi/SPRING/book/Chapter10/jsr349-custom/src/main/java/org/sobngwi/validation/jsr349/custom/Customer.java

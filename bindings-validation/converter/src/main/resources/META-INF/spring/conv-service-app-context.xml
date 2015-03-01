@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="org.sobngwi.converter.basique.StringToDateTimeConverter"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="alain" class="org.sobngwi.converter.basique.Contact"
+          p:firstName="Alain"
+          p:lastName="SOBNGWI"
+          p:birthDate="04-01-1979"
+          p:personalSite="http://www.sobngwi.org"/>
+</beans>

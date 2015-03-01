@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.sobngwi</groupId>
+	<artifactId>data-binding-validation-example</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Spring For Dat bindings and Bean Validation</name>
+    <description>
+        Parent pom to aggregate modules for bindings and validation.
+    </description>
+	
+	<inceptionYear>2015</inceptionYear>
+
+	<organization>
+		<name>ANS EXPERTISE EXCELLENCE SI</name>
+		<url>http://www.sobngwi.org</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<id>sobngwi</id>
+			<name>Alain SOBNGWI</name>
+			<email>sobngwi at gmail.com</email>
+			<organization>ANS Expertise Excellence </organization>
+			<organizationUrl>
+				http://www.sobngwi.org
+			</organizationUrl>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>-1</timezone>
+		</developer>
+	</developers>
+    
+    <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring.version>4.1.5.RELEASE</spring.version>
+    <joda.time.version>2.3</joda.time.version>
+    <hibernate.validator.version>5.1.0.Final</hibernate.validator.version>
+    <jsr349.version>1.1.0.Final</jsr349.version>
+    </properties>
+  
+    <modules>
+        <module>converter</module>
+	<module>converter-multiple-types</module>
+	<module>custom-formatter</module>
+	<module>jsr349</module>
+	<module>jsr349-assertTrue</module>
+	<module>jsr349-custom</module>
+	<module>spring-validator</module>
+	
+    </modules>
+    <dependencyManagement>
+    <dependencies>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>joda-time</groupId>
+          <artifactId>joda-time</artifactId>
+          <version>${joda.time.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-validator</artifactId>
+          <version>${hibernate.validator.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>javax.validation</groupId>
+          <artifactId>validation-api</artifactId>
+          <version>${jsr349.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>javax.el</groupId>
+          <artifactId>el-api</artifactId>
+          <version>2.2</version>
+      </dependency>
+      <dependency>
+          <groupId>org.glassfish.web</groupId>
+          <artifactId>el-impl</artifactId>
+          <version>2.2</version>
+      </dependency>
+  </dependencies>
+  </dependencyManagement>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <comments>
+Copyright 2007-2012 the original author or authors.
+
+
+            </comments>
+        </license>
+    </licenses>
+	
+</project>
+
